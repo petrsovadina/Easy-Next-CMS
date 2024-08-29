@@ -1,4 +1,5 @@
 # Next.js CMS Boilerplate s Novel Editorem a shadcn/ui 🚀
+<img src="https://i.ibb.co/2v0C13t/sovadina-dev.png" alt="sovadina-dev" border="0">
 
 > Jednoduchý, ale výkonný CMS systém postavený na Next.js, s Novel editorem pro vytváření obsahu a shadcn/ui pro moderní vzhled.
 
