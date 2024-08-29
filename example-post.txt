@@ -1,0 +1,234 @@
+---
+title: 'Kompletní průvodce Next.js CMS Boilerplate'
+description: 'Vše, co potřebujete vědět o používání, customizaci a rozšiřování našeho CMS systému'
+---
+
+# Kompletní průvodce Next.js CMS Boilerplate
+
+Vítejte v kompletním průvodci pro Next.js CMS Boilerplate. Tento dokument slouží jako vyčerpávající zdroj informací pro používání, customizaci a rozšiřování našeho CMS systému.
+
+## Obsah
+
+1. [Úvod](#úvod)
+2. [Architektura systému](#architektura-systému)
+3. [Začínáme](#začínáme)
+4. [Používání Novel editoru](#používání-novel-editoru)
+5. [Vytváření a editace článků](#vytváření-a-editace-článků)
+6. [Zobrazování článků](#zobrazování-článků)
+7. [Správa obsahu](#správa-obsahu)
+8. [Customizace a rozšíření](#customizace-a-rozšíření)
+9. [API pro externí projekty](#api-pro-externí-projekty)
+10. [Optimalizace výkonu](#optimalizace-výkonu)
+11. [Zabezpečení](#zabezpečení)
+12. [Nejlepší postupy](#nejlepší-postupy)
+13. [Řešení problémů](#řešení-problémů)
+14. [FAQ](#faq)
+
+## Úvod
+
+Náš CMS boilerplate je postavený na Next.js a poskytuje robustní řešení pro správu obsahu. Využívá Novel editor pro intuitivní vytváření obsahu, ukládá články jako MDX soubory pro maximální flexibilitu a používá shadcn/ui pro moderní a přizpůsobitelný vzhled.
+
+Hlavní funkce:
+- WYSIWYG editace s Novel editorem
+- MDX pro pokročilé možnosti obsahu
+- Responzivní design s Tailwind CSS
+- TypeScript pro typovou bezpečnost
+- Snadná customizace a rozšiřitelnost
+- Vestavěné API pro integraci s externími projekty
+
+## Architektura systému
+
+Náš CMS je postaven na následujících technologiích:
+
+- **Next.js**: React framework pro server-side rendering a statické generování
+- **Novel**: Moderní WYSIWYG editor
+- **MDX**: Rozšířený Markdown umožňující použití React komponent
+- **shadcn/ui**: Knihovna UI komponent
+- **Tailwind CSS**: Utility-first CSS framework
+- **TypeScript**: Typový systém pro JavaScript
+
+Struktura projektu:
+```
+nextjs-cms-boilerplate/
+├── components/     # React komponenty
+├── lib/            # Pomocné funkce a utility
+├── pages/          # Next.js stránky a API routes
+├── public/         # Statické soubory
+├── styles/         # Globální styly
+└── content/        # MDX soubory článků
+```
+
+## Začínáme
+
+1. Naklonujte repozitář:
+   ```
+   git clone https://github.com/your-username/nextjs-cms-boilerplate.git
+   ```
+2. Nainstalujte závislosti:
+   ```
+   npm install
+   ```
+3. Vytvořte `.env.local` soubor a nastavte potřebné proměnné prostředí
+4. Spusťte vývojový server:
+   ```
+   npm run dev
+   ```
+5. Otevřete `http://localhost:3000` v prohlížeči
+
+## Používání Novel editoru
+
+Novel editor je srdcem našeho CMS. Zde jsou klíčové funkce a jak je používat:
+
+1. **Formátování textu**: Použijte panel nástrojů nebo klávesové zkratky (např. Ctrl+B pro tučné písmo)
+2. **Vkládání odkazů**: Zvýrazněte text a klikněte na ikonu odkazu, nebo použijte Ctrl+K
+3. **Vkládání obrázků**: Přetáhněte obrázek do editoru nebo použijte tlačítko pro nahrání
+4. **Vytváření seznamů**: Začněte řádek s "-" pro odrážkový seznam nebo "1." pro číslovaný seznam
+5. **Vkládání kódu**: Použijte ``` pro bloky kódu nebo ` pro inline kód
+6. **Markdown shortcuty**: Editor podporuje Markdown syntaxi pro rychlé formátování
+
+Pokročilé funkce:
+- **Vkládání React komponent**: Použijte speciální syntaxi pro vložení vlastních komponent
+- **Tabulky**: Vytvářejte tabulky pomocí Markdown syntaxe
+- **Matematické vzorce**: Podporuje LaTeX syntaxi pro matematické vzorce
+
+## Vytváření a editace článků
+
+1. Přejděte na `/admin/editor`
+2. Zadejte název článku v poli "Title"
+3. Vytvořte URL slug v poli "Slug" (používejte pouze malá písmena, čísla a pomlčky)
+4. Použijte Novel editor pro vytvoření obsahu
+5. Klikněte na "Save Post" pro uložení článku
+
+Tipy:
+- Používejte krátké odstavce a nadpisy pro lepší čitelnost
+- Optimalizujte obrázky před nahráním pro rychlejší načítání
+- Využívejte tagy a kategorie pro lepší organizaci obsahu
+
+## Zobrazování článků
+
+- Seznam všech článků je dostupný na `/blog`
+- Jednotlivé články jsou přístupné na `/blog/[slug]`
+
+Články jsou renderovány jako MDX, což umožňuje:
+- Použití React komponent přímo v obsahu
+- Dynamické generování obsahu
+- Interaktivní elementy v článcích
+
+## Správa obsahu
+
+- Články jsou uloženy jako `.mdx` soubory v `content/blog/`
+- Metadata článků (title, description, atd.) jsou uložena v frontmatter
+- Pro správu verzí používejte Git
+
+Tipy pro organizaci:
+- Používejte konzistentní pojmenování souborů
+- Vytvořte systém tagů nebo kategorií
+- Pravidelně archivujte starší obsah
+
+## Customizace a rozšíření
+
+### Změna vzhledu
+
+1. Upravte `tailwind.config.js` pro změnu barevného schématu a dalších základních stylů
+2. Modifikujte nebo vytvořte nové komponenty v `components/`
+3. Upravte `styles/globals.css` pro globální styly
+
+### Přidání nových funkcí
+
+1. Vytvořte nové komponenty v `components/`
+2. Přidejte nové stránky v `pages/`
+3. Rozšiřte `lib/posts.ts` pro další funkce správy obsahu
+
+### Integrace s externími službami
+
+1. Přidejte nové API routes v `pages/api/`
+2. Použijte environment proměnné pro citlivé informace
+3. Implementujte middleware pro autentizaci a autorizaci
+
+## API pro externí projekty
+
+Naše CMS poskytuje RESTful API pro přístup k článkům z externích projektů:
+
+1. `GET /api/posts` - Získá seznam všech článků
+   - Query parametry: `limit`, `offset`, `tag`
+2. `GET /api/posts/[slug]` - Získá konkrétní článek podle slugu
+3. `POST /api/posts` - Vytvoří nový článek (vyžaduje autentizaci)
+4. `PUT /api/posts/[slug]` - Aktualizuje existující článek (vyžaduje autentizaci)
+5. `DELETE /api/posts/[slug]` - Smaže článek (vyžaduje autentizaci)
+
+Příklad použití:
+
+```javascript
+async function fetchPosts() {
+  const res = await fetch('https://your-cms-domain.com/api/posts?limit=10&offset=0');
+  const posts = await res.json();
+  return posts;
+}
+```
+
+## Optimalizace výkonu
+
+1. Používejte `next/image` pro automatickou optimalizaci obrázků
+2. Implementujte lazy loading pro dlouhé stránky
+3. Využívejte Next.js ISR (Incremental Static Regeneration) pro aktuální obsah s výkonem statických stránek
+4. Minimalizujte JavaScript pomocí code splitting
+5. Používejte CDN pro rychlejší doručování statických assetů
+
+## Zabezpečení
+
+1. Implementujte autentizaci pro admin rozhraní (např. pomocí NextAuth.js)
+2. Používejte HTTPS pro všechnu komunikaci
+3. Implementujte rate limiting pro API endpointy
+4. Pravidelně aktualizujte všechny závislosti
+5. Používejte CSP (Content Security Policy) pro prevenci XSS útoků
+
+## Nejlepší postupy
+
+1. Používejte popisné názvy pro slugy článků
+2. Optimalizujte obrázky před nahráním
+3. Pravidelně zálohujte obsah
+4. Používejte Git pro verzování obsahu
+5. Pište sémantický HTML pro lepší přístupnost
+6. Implementujte systém pro správu médií
+7. Vytvářejte a udržujte dokumentaci pro vývojáře
+
+## Řešení problémů
+
+1. **Články se nezobrazují**: 
+   - Zkontrolujte formát MDX souborů
+   - Ujistěte se, že cesty k souborům jsou správné
+   - Zkontrolujte konzoli prohlížeče pro chyby
+
+2. **Chyby při buildu**: 
+   - Ověřte správnost import cest
+   - Zkontrolujte typy v TypeScriptu
+   - Ujistěte se, že všechny závislosti jsou nainstalované
+
+3. **Problémy s editorem**: 
+   - Zkuste vyčistit cache prohlížeče
+   - Aktualizujte Novel na nejnovější verzi
+   - Zkontrolujte konzoli pro JavaScript chyby
+
+4. **API nefunguje**:
+   - Ověřte CORS nastavení
+   - Zkontrolujte autentizaci a autorizaci
+   - Podívejte se do server logů pro detaily chyb
+
+## FAQ
+
+**Q: Mohu používat vlastní React komponenty v článcích?**
+A: Ano, MDX umožňuje použití React komponent. Definujte komponenty v `components/` a importujte je v MDX souborech.
+
+**Q: Jak mohu implementovat vyhledávání v článcích?**
+A: Můžete implementovat fulltextové vyhledávání pomocí knihovny jako Algolia nebo elasticlunr.js, nebo vytvořit vlastní řešení pomocí API route.
+
+**Q: Je možné mít více autorů?**
+A: Ano, můžete rozšířit schéma článků o pole autora a implementovat systém uživatelských účtů.
+
+**Q: Jak optimalizovat SEO pro články?**
+A: Používejte metadata v frontmatter, implementujte strukturovaná data, vytvořte sitemapu a používejte sémantický HTML.
+
+---
+
+Tento průvodce poskytuje komplexní přehled o našem CMS systému. Pro další dotazy nebo podporu neváhejte otevřít issue v GitHub repozitáři projektu nebo kontaktovat náš tým podpory.
+
